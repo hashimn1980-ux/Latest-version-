@@ -39,19 +39,49 @@ export const ASSETS = {
   },
   ARCHIVE: {
     POWER: [
-      'https://images.unsplash.com/photo-1540962351504-03099e0a7782?q=80&w=2000', // Jet
-      'https://images.unsplash.com/photo-1594938298603-c8148c47e356?q=80&w=2000', // Suit/Watch
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000', // Boardroom
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_01.jpg_ebloir.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_02.jpg_uixa6e.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263484/power_05.jpg_zjmdy3.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263444/power_06.jpg_zlk2uf.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_07.jpg_eoll1d.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263444/power_08_u99003.png',
     ],
     VOYAGE: [
-      'https://images.unsplash.com/photo-1569263979104-865ab7dd8d36?q=80&w=2000', // Yacht
-      'https://images.unsplash.com/photo-1499856871940-a09627c6d7db?q=80&w=2000', // Paris
-      'https://images.unsplash.com/photo-1518096232537-88ebf256038f?q=80&w=2000', // Aspen
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263411/voyage_01.jpg_yltn7p.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263413/voyage_02.jpg_br1qxq.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263413/voyage_03.jpg_xaljkz.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263414/voyage_04.jpg_w61qrd.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263414/voyage_05.jpg_it79ep.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263415/voyage_06.jpg_s3qihm.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263412/voyage_07.jpg_fqal7d.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263412/voyage_08.jpg_jkxrfx.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264806/voyage_15.jpg_ru0mn7.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264809/voyage_16.jpg_wlmuk9.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264820/voyage_17.jpg_tx0syc.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264824/voyage_18.jpg_v5duim.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264827/voyage_09.jpg_i3kjup.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264830/voyage_10.jpg_ddttwf.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264833/voyage_11.jpg_kq6api.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264836/voyage_12.jpg_jzias8.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264839/voyage_13.jpg_adwobu.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264848/voyage_14.jpg_g0u7k6.jpg',
     ],
     ESSENCE: [
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2000', // Portrait Eye
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=2000', // Fabric
-      'https://images.unsplash.com/photo-1496449903678-68ddcb189a24?q=80&w=2000', // Reflection
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263401/essence_15.jpg_edadbh.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263384/essence_13.jpg_qi1ldt.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263383/essence_12.jpg_jv3g6q.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263383/essence_16.jpg_ae5qdn.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263382/essence_11.jpg_cb5l0p.jpg',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263380/essence_10.jpg_q50fxu.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263379/essence_09.jpg_gg0g2r.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263379/essence_08.jpg_iyrfad.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263370/essence_07.jpg_ihakey.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263370/essence_06.jpg_o4wkag.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263369/essence_11.jpg_llwsdg.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263369/essence_05.jpg_jtvq7s.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263357/essence_02.jpg_dez8z1.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263357/essence_01.jpg_ghy0as.png',
+      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263356/essence_03.jpg_jvpe26.jpg',
     ]
   }
 };
