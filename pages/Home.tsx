@@ -10,7 +10,12 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Audio State
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Mouse Move Effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
@@ -27,6 +32,31 @@ const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
       if (el) el.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  // Audio Initialization
+  useEffect(() => {
+    const audio = new Audio(ASSETS.HOME.AUDIO);
+    audio.loop = true;
+    audio.volume = 0.2; // Subtle ambient volume
+    audioRef.current = audio;
+
+    return () => {
+      audio.pause();
+      audioRef.current = null;
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play().catch(e => console.error("Playback failed:", e));
+      setIsPlaying(true);
+    }
+  };
 
   // --- CONTENT MAPPING ---
   const content = {
@@ -59,7 +89,25 @@ const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
   const txt = content[language];
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
+      
+      {/* Audio Toggle Control */}
+      <button
+        onClick={toggleAudio}
+        className="fixed bottom-8 right-8 z-50 flex items-center gap-3 group text-white/40 hover:text-copper transition-all duration-500"
+      >
+        <span className="text-[10px] uppercase tracking-[0.2em] font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
+           {isPlaying ? 'Mute Ambience' : 'Sound On'}
+        </span>
+        <div className={`p-3 border border-white/10 rounded-full group-hover:border-copper/50 bg-black/20 backdrop-blur-sm transition-colors duration-500 relative overflow-hidden`}>
+           {/* Animated Pulse Ring if playing */}
+           {isPlaying && <div className="absolute inset-0 bg-copper/10 animate-ping rounded-full"></div>}
+           <span className="material-symbols-outlined text-lg relative z-10">
+             {isPlaying ? 'volume_up' : 'volume_off'}
+           </span>
+        </div>
+      </button>
+
       {/* Hero Section */}
       <section 
         ref={containerRef}
