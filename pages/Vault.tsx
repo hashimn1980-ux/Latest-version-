@@ -35,7 +35,7 @@ function buildItems(pool: string[], seg: number) {
 
   const coords = xCols.flatMap((x, c) => {
     const ys = c % 2 === 0 ? evenYs : oddYs;
-    return ys.map(y => ({ x, y, sizeX: 2.2, sizeY: 2.8 })); // Adjusted for taller luxury portrait feel
+    return ys.map(y => ({ x, y, sizeX: 2.2, sizeY: 2.8 })); 
   });
 
   const totalSlots = coords.length;
@@ -130,15 +130,15 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
       onDragStart: ({ event }) => {
         if (focusedElRef.current) return;
         stopInertia();
-        const evt = event as unknown as PointerEvent;
+        const evt = event as PointerEvent;
         draggingRef.current = true;
         movedRef.current = false;
         startRotRef.current = { ...rotationRef.current };
         startPosRef.current = { x: evt.clientX, y: evt.clientY };
       },
-      onDrag: ({ event, last, velocity = [0, 0], direction = [0, 0], movement }) => {
+      onDrag: ({ event, last, velocity = [0, 0], direction = [0, 0] }) => {
         if (focusedElRef.current || !draggingRef.current || !startPosRef.current) return;
-        const evt = event as unknown as PointerEvent;
+        const evt = event as PointerEvent;
         const dxTotal = evt.clientX - startPosRef.current.x;
         const dyTotal = evt.clientY - startPosRef.current.y;
         if (!movedRef.current) {
@@ -266,7 +266,6 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
       return;
     }
 
-    const rootRect = rootRef.current!.getBoundingClientRect();
     const frameR = frameRef.current!.getBoundingClientRect();
     const tx0 = originalPos.left - frameR.left;
     const ty0 = originalPos.top - frameR.top;
@@ -292,14 +291,22 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
     [Language.EN]: {
       title: "THE ARCHIVE",
       description: "Exclusive commissions and visual experiments in sovereignty.",
-      categories: { POWER: "POWER", VOYAGE: "VOYAGE", ESSENCE: "ESSENCE" },
+      categories: { 
+        POWER: { label: "POWER", desc: "Structural Authority & Presence" },
+        VOYAGE: { label: "VOYAGE", desc: "Cinematic Transit & Flow" },
+        ESSENCE: { label: "ESSENCE", desc: "Untouched Originality" }
+      },
       scrollHint: "Traverse the Institutional Archive",
       close: "Close Inspection"
     },
     [Language.AR]: {
       title: "الأرشيف",
       description: "تكليفات حصرية وتجارب بصرية في السيادة.",
-      categories: { POWER: "الهيبة", VOYAGE: "الرحلة", ESSENCE: "الأصالة" },
+      categories: { 
+        POWER: { label: "الهيبة", desc: "سلطة الهيكل والحضور" },
+        VOYAGE: { label: "الرحلة", desc: "التدفق البصري السينمائي" },
+        ESSENCE: { label: "الأصالة", desc: "العراقة التي لا تُمَس" }
+      },
       scrollHint: "تصفح أرشيف المؤسسة",
       close: "إغلاق المعاينة"
     }
@@ -325,6 +332,12 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
           overflow: hidden;
           --radius: 1000px;
           --overlay-blur-color: #050505;
+          animation: --engine-rotate 1s linear;
+          animation-timeline: scroll(nearest block);
+        }
+
+        @keyframes --engine-rotate {
+          to { --rotate: 1; }
         }
         
         main.sphere-main {
@@ -366,6 +379,7 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
             rotateY(calc((360deg / var(--segments-x)) / 2 * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg)))
             rotateX(calc((360deg / var(--segments-y)) / 2 * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg)))
             translateZ(var(--radius));
+          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .item__image {
@@ -472,8 +486,16 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
           right: clamp(1.5rem, 5vw, 4rem);
           display: flex;
           flex-direction: column;
-          gap: clamp(1rem, 3vh, 2rem);
+          gap: clamp(1.5rem, 4vh, 2.5rem);
           pointer-events: auto;
+          align-items: flex-end;
+        }
+
+        .cat-item-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          position: relative;
         }
 
         .cat-btn {
@@ -482,17 +504,58 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
           letter-spacing: 0.5em;
           text-align: right;
           color: rgba(255,255,255,0.15);
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           border-right: 2px solid transparent;
           padding-right: clamp(1rem, 3vw, 2rem);
           white-space: nowrap;
+          cursor: pointer;
         }
 
         .cat-btn.active {
           color: white;
           border-right-color: #B7795C;
-          transform: translateX(-8px);
+          transform: translateX(-12px);
           opacity: 1;
+        }
+
+        .cat-btn.active::before {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          width: 30px;
+          height: 1px;
+          background: #B7795C;
+          transform: scaleX(0);
+          transform-origin: right;
+          animation: bar-grow 0.6s forwards 0.2s;
+        }
+
+        @keyframes bar-grow {
+          to { transform: scaleX(1); }
+        }
+
+        .cat-desc {
+          font-size: 8px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #B7795C;
+          opacity: 0;
+          transform: translateX(10px);
+          transition: all 0.4s ease;
+          pointer-events: none;
+          margin-top: 4px;
+          margin-right: clamp(1rem, 3vw, 2rem);
+        }
+
+        .cat-item-container:hover .cat-desc {
+          opacity: 0.6;
+          transform: translateX(0);
+        }
+        
+        .cat-btn:hover:not(.active) {
+          color: rgba(255,255,255,0.7);
+          transform: translateX(-6px);
         }
 
         .scroll-indicator {
@@ -525,6 +588,28 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
           animation: fluid-scroll-line 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
         }
 
+        /* NEW: Scroll Progress Gauge */
+        .vault-progress-track {
+          position: fixed;
+          left: 1.5rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 30vh;
+          background: rgba(255,255,255,0.05);
+          z-index: 60;
+        }
+
+        .vault-progress-fill {
+          width: 100%;
+          height: 100%;
+          background: #B7795C;
+          transform-origin: top;
+          transform: scaleY(calc(var(--rotate, 0)));
+          box-shadow: 0 0 10px rgba(183,121,92,0.5);
+          transition: transform 0.1s linear;
+        }
+
         @keyframes fluid-scroll-line {
           0% { top: -100%; }
           60% { top: 100%; }
@@ -540,6 +625,10 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
             flex-direction: row;
             width: 100%;
             justify-content: center;
+            gap: 1.5rem;
+          }
+          .cat-item-container {
+            align-items: center;
           }
           .cat-btn {
             border-right: none;
@@ -550,17 +639,34 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
           }
           .cat-btn.active {
              border-bottom-color: #B7795C;
-             transform: translateY(-4px);
+             transform: translateY(-6px);
+             padding-right: 0;
+          }
+          .cat-btn.active::before {
+            display: none;
+          }
+          .cat-desc {
+            display: none;
+          }
+          .vault-progress-track {
+             left: auto;
+             right: 1.5rem;
+             height: 20vh;
           }
         }
       `}</style>
+
+      {/* Persistent Vertical Progress Gauge */}
+      <div className="vault-progress-track">
+        <div className="vault-progress-fill"></div>
+      </div>
 
       <main ref={mainRef as any} className="sphere-main">
         <div className="stage">
           <div ref={sphereRef} className="sphere">
             {items.map((it, i) => (
               <div
-                key={`${it.x},${it.y},${i}`}
+                key={`${activeCollection}-${it.x},${it.y},${i}`}
                 className="item"
                 data-src={it.src}
                 data-offset-x={it.x}
@@ -603,13 +709,17 @@ const Vault: React.FC<VaultProps> = ({ language }) => {
 
         <nav className="vault-sidebar">
           {(['POWER', 'VOYAGE', 'ESSENCE'] as Collection[]).map((c) => (
-            <button
-              key={c}
-              onClick={() => setActiveCollection(c)}
-              className={`cat-btn ${activeCollection === c ? 'active' : ''} ${language === Language.AR ? 'font-arabic' : 'font-sans'}`}
-            >
-              {txt.categories[c]}
-            </button>
+            <div key={c} className="cat-item-container">
+              <button
+                onClick={() => setActiveCollection(c)}
+                className={`cat-btn ${activeCollection === c ? 'active' : ''} ${language === Language.AR ? 'font-arabic' : 'font-sans'}`}
+              >
+                {txt.categories[c].label}
+              </button>
+              <span className={`cat-desc ${language === Language.AR ? 'font-arabic' : 'font-sans'}`}>
+                {txt.categories[c].desc}
+              </span>
+            </div>
           ))}
         </nav>
 
