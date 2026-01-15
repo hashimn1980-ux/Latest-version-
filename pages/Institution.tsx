@@ -316,7 +316,7 @@ const Institution: React.FC<InstitutionProps> = ({ language }) => {
                            "We don't create images; we craft digital sovereignty for those who refuse to be just a copy."
                          </p>
                          <p className="mt-6 text-xs uppercase tracking-widest text-white/40">
-                            Elias Vane, Founder
+                            Ayman Al-Majali, Founder
                          </p>
                       </div>
 
@@ -333,13 +333,7 @@ const Institution: React.FC<InstitutionProps> = ({ language }) => {
                    </div>
                 </div>
 
-                {/* Additional Context */}
-                <p className="mt-8 text-white/50 font-sans text-sm leading-relaxed max-w-2xl">
-                   {language === Language.AR 
-                    ? 'راقبت الصناعة وهي تزداد ضجيجاً. المنافسون يصرخون طلباً للانتباه بينما القوة الحقيقية تهمس. لم تُصمم أَنيف للمنافسة في الضجيج، بل لامتلاك الصمت.'
-                    : 'I watched as the industry grew loud. Competitors screamed for attention while true power whispered. ANEEF was architected not to compete in the noise, but to own the silence.'
-                   }
-                </p>
+                {/* Additional Context Removed as requested */}
              </div>
 
              {/* Right: Image */}
@@ -348,7 +342,7 @@ const Institution: React.FC<InstitutionProps> = ({ language }) => {
                    <div className="absolute inset-0 bg-navy/10 mix-blend-overlay z-10"></div>
                    <img 
                      src={ASSETS.INSTITUTION.FOUNDER_PORTRAIT} 
-                     alt="Elias Vane" 
+                     alt="Ayman Al-Majali" 
                      className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-700"
                    />
                    <div className="absolute -bottom-6 -left-6 bg-navy border border-copper px-8 py-4 shadow-2xl z-20">
