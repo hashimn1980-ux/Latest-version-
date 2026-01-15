@@ -10,12 +10,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Audio State
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Mouse Move Effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
@@ -33,32 +28,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
     };
   }, []);
 
-  // Audio Initialization
-  useEffect(() => {
-    const audio = new Audio(ASSETS.HOME.AUDIO);
-    audio.loop = true;
-    audio.volume = 0.2; // Subtle ambient volume
-    audioRef.current = audio;
-
-    return () => {
-      audio.pause();
-      audioRef.current = null;
-    };
-  }, []);
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().catch(e => console.error("Playback failed:", e));
-      setIsPlaying(true);
-    }
-  };
-
-  // --- CONTENT MAPPING ---
   const content = {
     [Language.EN]: {
       tagline: "One Shot... Forever.",
@@ -90,93 +59,38 @@ const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
 
   return (
     <div className="w-full relative">
-      
-      {/* Audio Toggle Control */}
-      <button
-        onClick={toggleAudio}
-        className="fixed bottom-8 right-8 z-50 flex items-center gap-3 group text-white/40 hover:text-copper transition-all duration-500"
-      >
-        <span className="text-[10px] uppercase tracking-[0.2em] font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
-           {isPlaying ? 'Mute Ambience' : 'Sound On'}
-        </span>
-        <div className={`p-3 border border-white/10 rounded-full group-hover:border-copper/50 bg-black/20 backdrop-blur-sm transition-colors duration-500 relative overflow-hidden`}>
-           {/* Animated Pulse Ring if playing */}
-           {isPlaying && <div className="absolute inset-0 bg-copper/10 animate-ping rounded-full"></div>}
-           <span className="material-symbols-outlined text-lg relative z-10">
-             {isPlaying ? 'volume_up' : 'volume_off'}
-           </span>
-        </div>
-      </button>
-
-      {/* Hero Section */}
-      <section 
-        ref={containerRef}
-        className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center"
-      >
-        {/* Molten Copper Background Simulation */}
+      <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
         <div className="absolute inset-0 z-0 opacity-80">
-           <img 
-             src={ASSETS.HOME.HERO_BG}
-             className="w-full h-full object-cover blur-sm scale-110 animate-pulse-slow" 
-             alt="Molten Copper" 
-           />
-           {/* Darken overlay */}
-           <div className="absolute inset-0 bg-black/30 transition-opacity duration-500"></div>
+           <img src={ASSETS.HOME.HERO_BG} className="w-full h-full object-cover blur-sm scale-110 animate-pulse-slow" alt="Background" />
+           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        {/* Torchlight Effect - Increased Radius and Intensity */}
         <div 
           className="absolute inset-0 z-10 pointer-events-none mix-blend-soft-light transition-opacity duration-75"
-          style={{
-            background: `radial-gradient(900px circle at ${mousePos.x}px ${mousePos.y}px, rgba(183, 121, 92, 0.25) 0%, rgba(15, 40, 68, 0.7) 40%, rgba(15, 40, 68, 1) 100%)`
-          }}
+          style={{ background: `radial-gradient(900px circle at ${mousePos.x}px ${mousePos.y}px, rgba(183, 121, 92, 0.25) 0%, rgba(15, 40, 68, 0.7) 40%, rgba(15, 40, 68, 1) 100%)` }}
         />
 
-        {/* Center Content */}
         <div className="relative z-20 text-center px-4">
           <div className="flex justify-center">
-             <img 
-               src={ASSETS.LOGO.HOME_HERO} 
-               alt="ANEEF Emblem" 
-               className="w-80 md:w-[30rem] lg:w-[40rem] h-auto object-contain drop-shadow-2xl" 
-             />
+             <img src={ASSETS.LOGO.HOME_HERO} alt="ANEEF" className="w-80 md:w-[30rem] lg:w-[40rem] h-auto object-contain drop-shadow-2xl" />
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-20">
           <div className="w-[1px] h-16 bg-gradient-to-b from-transparent to-copper"></div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
       <section className="relative py-32 px-6 md:px-12 bg-navy border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          <span className="text-white/40 font-sans text-xs uppercase tracking-[0.2em] mb-8 block">
-            {language === Language.AR ? 'الفلسفة' : 'The Philosophy'}
-          </span>
-          
-          <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white leading-tight mb-12">
-            {txt.philHeading}
-          </h2>
-          
-          <p className="font-sans text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-            {txt.philBody}
-          </p>
-
-          {/* CTA BUTTON - Routes to Concierge (Application) */}
-          <button 
-            onClick={() => onNavigate(Page.CONCIERGE)}
-            className="px-10 py-5 border border-copper text-copper hover:bg-copper hover:text-white transition-all duration-500 ease-out text-xs uppercase tracking-[0.25em] font-bold"
-          >
-            {txt.cta}
-          </button>
+          <span className="text-white/40 font-sans text-xs uppercase tracking-[0.2em] mb-8 block">{language === Language.AR ? 'الفلسفة' : 'The Philosophy'}</span>
+          <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white leading-tight mb-12">{txt.philHeading}</h2>
+          <p className="font-sans text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-12">{txt.philBody}</p>
+          <button onClick={() => onNavigate(Page.CONCIERGE)} className="px-10 py-5 border border-copper text-copper hover:bg-copper hover:text-white transition-all duration-500 ease-out text-xs uppercase tracking-[0.25em] font-bold">{txt.cta}</button>
         </div>
       </section>
 
-      {/* Dual Path Section */}
       <section className="relative h-screen flex flex-col md:flex-row overflow-hidden">
-        {/* Left: The Mandate (Institution) */}
         <div className="w-full md:w-1/2 h-1/2 md:h-full relative group cursor-pointer border-b md:border-b-0 md:border-r border-white/10" onClick={() => onNavigate(Page.INSTITUTION)}>
           <div className="absolute inset-0 bg-navy transition-all duration-700 md:group-hover:w-[140%] z-0">
              <div className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" style={{ backgroundImage: `url('${ASSETS.HOME.MANDATE_BG}')`}}></div>
@@ -187,8 +101,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, language }) => {
             <span className="text-copper text-xs border-b border-copper pb-1">{txt.mandateLink}</span>
           </div>
         </div>
-
-        {/* Right: The Archive (Gallery) */}
         <div className="w-full md:w-1/2 h-1/2 md:h-full relative group cursor-pointer" onClick={() => onNavigate(Page.VAULT)}>
           <div className="absolute inset-0 bg-navy-light transition-all duration-700 md:group-hover:w-[140%] md:group-hover:-translate-x-[20%] z-0">
              <div className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" style={{ backgroundImage: `url('${ASSETS.HOME.ACCELERATE_BG}')`}}></div>

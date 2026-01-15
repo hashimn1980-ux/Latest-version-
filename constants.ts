@@ -9,7 +9,6 @@ export const ASSETS = {
     HERO_BG: 'https://picsum.photos/seed/aneef-copper/1920/1080',
     MANDATE_BG: 'https://picsum.photos/seed/arch/800/1200',
     ACCELERATE_BG: 'https://picsum.photos/seed/jet/800/1200',
-    AUDIO: 'https://assets.mixkit.co/music/preview/mixkit-slow-trail-2438.mp3',
   },
   INSTITUTION: {
     STEP_1: 'https://picsum.photos/seed/step1/600/800',
@@ -19,16 +18,11 @@ export const ASSETS = {
     FOUNDER_PORTRAIT: 'https://github.com/hashimn1980-ux/ANEEF---Ultra-Luxury-Institutional-Finance/blob/main/Whisk_itojjtn0ednwegn20yyjrwotgjn1qtlkzdm30co.jpeg?raw=true',
   },
   VAULT: {
-    TEXTURE: '/assets/film-grain.svg',
-    SOVEREIGN_CROWN: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAsxyOk9d8w5KUtXHXHfgGYTC39JMOoOqY4Nu0DSN3nZqYrBFiS4B4hFbBnlgKiLwCEDZYkG8nvK0OFQ1NywfjqnJyB-DustQtg6mkO3aj7X97bBJREgXK0vJprBmvre-nYANOGKE9R1kWzTd09Y5JdZK2_j4DSF7dBjdWx3MOiNpkrRnbvKiBt4TOEibF-gYQi8iw_yriT4MZAiN98bhDi-esGaltW2_740xDf3WFNrIBfDwYVoHh_F_GLSZs5Q7ax8KYhF3j96AKF',
-    SOVEREIGN_SCEPTER: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4AXFHO5-lmw8i8gFb7PIo4t2ff08dOkJ2g1rGEfn66N7kysG634dA910u02enIbUdttpmrIe4PMHhOVvSDpLJBCmMq6ed4MFAhfDnXkhUJG8hGsriphIVTb0y26nCgkgRay2XaPdHDFci5jP7L-42mF6P3AsuKZ91iIx8fG2iYAN8I7znPp7jVXgClzecZ321kyjdo8Jnjhhu9fhp7RmOE6EclhEO9FJzgKfCNNGWnCsJdrWaVhHZ5WBTkvOPzCI6H7tMN5oEYU-G',
-    SOVEREIGN_SCROLL: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUEInEqgpIj_SUCwOKMp-qr3oapXgGYNpf9krFSJXvVqRdUDDnXj5-PMJxTrHMNzThKBjhcM0SRrgo6eIWz3TB6hfhapPJxAKdReMoiHWXlv3rflohq3UL5491J74uhVLwO6SPQRhna0I1UlCDu1ypuWYXTUYbcXu09OwvXS0aYvml9k4ajLHXl3LQh54ltSU1nvqGC1jJXJ52kfqr4odHQERg0lAhjqixDeVjuCq66RIeXomEPZmhJTKQ2V4ZjOZ0BNyhZsrxIDoU',
-    SOVEREIGN_VESSEL: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBsmsYiR5LiD5sHTEMPgKQ02eS5tqk5i_bmjxpvxq_ovfk4uapp9ZxoqEZFTEBLxyPnSYsYMFQbMTrnQ_j4T7btxRzwNmy9iwsC91R4-G0cOKAGCjtye_4Rb2v5qVQZP3exP-HK9Ih13XkZw2kw4VlVjLoUaLJWN_vyVYYX-vUzD8mJR8goLBddhDM7eFYaWNZezgcbuIFW7TC63fS87hXawAsPJy0Uogd1pctSC5HgtE0hNpqe7Lxp0t13e2FDUn9EHT2-mZ3NBj3Q',
-    SOVEREIGN_COIN: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAt2aBINg6X6Zg60GjeFZD9uFpdAW-3P8_sZdzHr4b0ozHb9oZn70YaYFCHoV-VRPCc79KMERsStWLyEyG1NuncxwNn717WRu8zPitWFl2A_BW_4sQQC0rPD8X34Soqwip1fJFyzq37840BH24hGEkyVPiL8qaAe05n7j7Dua5byPtRTKC2q1_IfqzYve5o78x84Cy1MzmZEArywfLuz2mw7-wbFCbu_LZFktr4NzcsGSu4Ki7aU4y8rQ4Kzu9UoFjeq5lD3cJojj3L',
-    ITEM_1: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop', 
-    ITEM_2: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop', 
-    ITEM_3: 'https://images.unsplash.com/photo-1554188248-986adbb73be0?q=80&w=1600&auto=format&fit=crop', 
-    ITEM_4: 'https://images.unsplash.com/photo-1492551557933-34265f7af79e?q=80&w=1600&auto=format&fit=crop', 
+    TEXTURE: 'https://github.com/hashimn1980-ux/ANEEF---Ultra-Luxury-Institutional-Finance/blob/main/public/assets/film-grain.svg?raw=true',
+    SOVEREIGN_CROWN: 'https://picsum.photos/seed/crown/800/1200',
+    NODE_POWER: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+    NODE_VOYAGE: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop',
+    NODE_ESSENCE: 'https://images.unsplash.com/photo-1554188248-986adbb73be0?q=80&w=1600&auto=format&fit=crop',
   },
   ARCHIVE: {
     POWER: [
@@ -37,7 +31,6 @@ export const ASSETS = {
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263444/power_08_u99003.png',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_07.jpg_eoll1d.jpg',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_01.jpg_ebloir.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263443/power_02.jpg_uixa6e.jpg',
     ],
     VOYAGE: [
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263411/voyage_01.jpg_yltn7p.jpg',
@@ -46,18 +39,6 @@ export const ASSETS = {
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263414/voyage_04.jpg_w61qrd.png',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263414/voyage_05.jpg_it79ep.png',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263415/voyage_06.jpg_s3qihm.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263412/voyage_07.jpg_fqal7d.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263412/voyage_08.jpg_jkxrfx.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264827/voyage_09.jpg_i3kjup.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264830/voyage_10.jpg_ddttwf.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264833/voyage_11.jpg_kq6api.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264836/voyage_12.jpg_jzias8.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264839/voyage_13.jpg_adwobu.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264848/voyage_14.jpg_g0u7k6.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264806/voyage_15.jpg_ru0mn7.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264809/voyage_16.jpg_wlmuk9.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264820/voyage_17.jpg_tx0syc.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768264824/voyage_18.jpg_v5duim.jpg',
     ],
     ESSENCE: [
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263401/essence_15.jpg_edadbh.jpg',
@@ -65,16 +46,6 @@ export const ASSETS = {
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263383/essence_12.jpg_jv3g6q.jpg',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263383/essence_16.jpg_ae5qdn.jpg',
       'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263382/essence_11.jpg_cb5l0p.jpg',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263380/essence_10.jpg_q50fxu.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263379/essence_09.jpg_gg0g2r.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263379/essence_08.jpg_iyrfad.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263370/essence_07.jpg_ihakey.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263370/essence_06.jpg_o4wkag.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263369/essence_11.jpg_llwsdg.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263369/essence_05.jpg_jtvq7s.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263357/essence_02.jpg_dez8z1.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263357/essence_01.jpg_ghy0as.png',
-      'https://res.cloudinary.com/dmdjgog00/image/upload/v1768263356/essence_03.jpg_jvpe26.jpg',
     ]
   }
 };
